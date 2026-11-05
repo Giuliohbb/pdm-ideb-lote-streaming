@@ -1,0 +1,40 @@
+GET /saude -> 200 {"status":"ok","modelo":{"nome":"modelo_ideb","versao":"v2","backend":"savedmodel"},"carregado_em":"2026-10-30T01:48:03+00:00"}
+buscando 300 escolas da fonte 'streaming' no BigQuery...
+
+Concordância API x BigQuery ML (streaming): 17 escolas
+  dentro da tolerância de 0.001: 17 de 17
+  diferença máxima: 4.74e-07 · média: 2.69e-07
+  escolas com avisos (nulos ou categoria nova): 0
+  MAE da API contra o IDEB observado: 0.560
+    29990001: API 4.029842 · BigQuery 4.029842 · dif 4.74e-07
+    43990001: API 5.190207 · BigQuery 5.190207 · dif 4.70e-07
+    27990001: API 3.402463 · BigQuery 3.402463 · dif 4.04e-07
+
+Latência de ponta a ponta (17 requisições de 1 escola): mediana 129 ms · p95 141 ms
+Tempo dentro da API: mediana 5.6 ms
+
+GET /escolas/52990002/predicao -> 200
+{
+  "id_escola": "52990002",
+  "modelo": {
+    "nome": "modelo_ideb",
+    "versao": "v2",
+    "backend": "savedmodel"
+  },
+  "resultados": [
+    {
+      "origem_dado": "streaming",
+      "ano": 2023,
+      "sigla_uf": "GO",
+      "rede": "2",
+      "ideb_real": 5.4,
+      "ideb_previsto_api": 5.334497,
+      "ideb_previsto_bigquery": 5.334497,
+      "diferenca_api_bigquery": 0.0,
+      "avisos": []
+    }
+  ],
+  "latencia_ms": 804.7
+}
+
+RESULTADO: OK, a API serve o mesmo modelo do BigQuery ML

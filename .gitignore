@@ -1,0 +1,31 @@
+# Dados do fluxo: gerados de forma determinística a partir de semente/ (seção 3 do README).
+# A docente sozinha passa de 100 MB, acima do limite do GitHub.
+dados/
+
+# Artefatos de modelo baixados para diagnóstico: a fonte é o Cloud Storage
+# (gs://platinum-avenue-505512-t5-modelos-ideb/modelo_ideb/<versão>/)
+diagnostico/
+*.pb
+variables/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Credenciais (nunca versionar chaves de conta de serviço)
+*.json.key
+*-key.json
+credenciais*.json
+.env.local
+
+# Sistema e editores
+.DS_Store
+__MACOSX/
+.idea/
+.vscode/
+*.swp
+*.bak

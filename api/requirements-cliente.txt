@@ -1,0 +1,3 @@
+# Para rodar api/cliente_validacao.py no Cloud Shell ou no seu computador
+google-cloud-bigquery>=3.20,<4
+requests>=2.31,<3

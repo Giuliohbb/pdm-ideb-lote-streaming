@@ -1,0 +1,5 @@
+lote: 10000/10000 dentro da tolerância
+Diferença máxima: 0.000000072
+streaming: 17/17 dentro da tolerância
+Diferença máxima: 0.000000055
+RESULTADO: APROVADO

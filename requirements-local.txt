@@ -1,0 +1,6 @@
+# Para gerar as bronzes do fluxo e rodar o teste ponta a ponta no seu computador ou no Cloud Shell
+numpy>=1.26
+pandas>=2.2
+flask>=3.0,<4
+duckdb>=1.4
+sqlglot>=25

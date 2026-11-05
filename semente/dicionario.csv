@@ -1,0 +1,92 @@
+id_tabela,nome_coluna,chave,cobertura_temporal,valor
+docente,escolaridade,1,(1),Fundamental Incompleto
+docente,escolaridade,2,(1),Fundamental Completo
+docente,escolaridade,3,2015(1),Ensino Médio
+docente,escolaridade,3,2009(1)2014,Ensino Médio - Normal/Magistério
+docente,escolaridade,4,2015(1),Ensino Superior Completo
+docente,escolaridade,4,2009(1)2014,Ensino Médio - Normal/Magistério Específico Indígena
+docente,escolaridade,5,2009(1)2014,Ensino Médio
+docente,escolaridade,6,2009(1)2010,Ensino Superior Completo
+docente,escolaridade,6,2011(1)2014,Ensino Superior (Concluído ou em Andamento)
+docente,etapa_ensino,1,(1),Educação Infantil - Creche
+docente,etapa_ensino,2,(1),Educação Infantil - Pré-escola
+docente,etapa_ensino,3,(1),Educação Infantil - Unificada
+docente,etapa_ensino,4,(1)2018,Ensino Fundamental de 8 anos - 1ª Série
+docente,etapa_ensino,5,(1)2018,Ensino Fundamental de 8 anos - 2ª Série
+docente,etapa_ensino,6,(1)2018,Ensino Fundamental de 8 anos - 3ª Série
+docente,etapa_ensino,7,(1)2018,Ensino Fundamental de 8 anos - 4ª Série
+docente,etapa_ensino,8,(1)2018,Ensino Fundamental de 8 anos - 5ª Série
+docente,etapa_ensino,9,(1)2018,Ensino Fundamental de 8 anos - 6ª Série
+docente,etapa_ensino,10,(1)2018,Ensino Fundamental de 8 anos - 7ª Série
+docente,etapa_ensino,11,(1)2018,Ensino Fundamental de 8 anos - 8ª Série
+docente,etapa_ensino,12,(1)2018,Ensino Fundamental de 8 anos - Multi
+docente,etapa_ensino,13,(1)2018,Ensino Fundamental de 8 anos - Correção de Fluxo
+docente,etapa_ensino,14,(1),Ensino Fundamental de 9 anos - 1º Ano
+docente,etapa_ensino,15,(1),Ensino Fundamental de 9 anos - 2º Ano
+docente,etapa_ensino,16,(1),Ensino Fundamental de 9 anos - 3º Ano
+docente,etapa_ensino,17,(1),Ensino Fundamental de 9 anos - 4º Ano
+docente,etapa_ensino,18,(1),Ensino Fundamental de 9 anos - 5º Ano
+docente,etapa_ensino,19,(1),Ensino Fundamental de 9 anos - 6º Ano
+docente,etapa_ensino,20,(1),Ensino Fundamental de 9 anos - 7º Ano
+docente,etapa_ensino,21,(1),Ensino Fundamental de 9 anos - 8º Ano
+docente,etapa_ensino,22,(1),Ensino Fundamental de 9 anos - Multi
+docente,etapa_ensino,23,(1),Ensino Fundamental de 9 anos - Correção de Fluxo
+docente,etapa_ensino,24,(1)2018,Ensino Fundamental de 8 e 9 anos - Multi 8 e 9 anos
+docente,etapa_ensino,25,(1),Ensino Médio - 1ª Série (até 2018) / Ensino Médio - 1º ano/1ª Série (2019 em diante)
+docente,etapa_ensino,26,(1),Ensino Médio - 2ª Série / Ensino Médio - 2º ano/2ª Série (2019 em diante)
+docente,etapa_ensino,27,(1),Ensino Médio - 3ª Série / Ensino Médio - 3º ano/3ª Série (2019 em diante)
+docente,etapa_ensino,28,(1),Ensino Médio - 4ª Série / Ensino Médio - 4º ano/4ª Série (2019 em diante)
+docente,etapa_ensino,29,(1),Ensino Médio - Não Seriada
+docente,etapa_ensino,30,(1),Ensino Médio - Integrado 1ª Série (até 2014) / Curso Técnico Integrado (Ensino Médio Integrado) 1ª Série (2015 em diante)
+docente,etapa_ensino,31,(1),Ensino Médio - Integrado 2ª Série (até 2014) / Curso Técnico Integrado (Ensino Médio Integrado) 2ª Série
+docente,etapa_ensino,32,(1),Ensino Médio - Integrado 3ª Série (até 2014) / Curso Técnico Integrado (Ensino Médio Integrado) 3ª Série (2015 em diante)
+docente,etapa_ensino,33,(1),Ensino Médio - Integrado 4ª Série (até 2014)/ Curso Técnico Integrado (Ensino Médio Integrado) 4ª Série (2015 em diante)
+docente,etapa_ensino,34,(1),Ensino Médio - Integrado Não Seriada (até 2014)/ Curso Técnico Integrado (Ensino Médio Integrado) Não Seriada (2015 em diante)
+docente,etapa_ensino,35,(1),Ensino Médio - Normal/Magistério 1ª Série (até 2018) / Ensino Médio - Modalidade Normal/Magistério 1ª Série (2019 em diante)
+docente,etapa_ensino,36,(1),Ensino Médio - Normal/Magistério 2ª Série (até 2018) / Ensino Médio - Modalidade Normal/Magistério 2ª Série (2019 em diante)
+docente,etapa_ensino,37,(1),Ensino Médio - Normal/Magistério 3ª Série (até 2018) / Ensino Médio - Modalidade Normal/Magistério 3ª Série ( 2019 em diante)
+docente,etapa_ensino,38,(1),Ensino Médio - Normal/Magistério 4ª Série (até 2018) / Ensino Médio - Modalidade Normal/Magistério 4ª Série (2019 em diante)
+docente,etapa_ensino,39,(1),Educação Profissional (Concomitante) / Curso Técnico - Concomitante
+docente,etapa_ensino,40,(1),Educação Profissional (Subsequente) / Curso Técnico - Subsequente
+docente,etapa_ensino,41,(1),Ensino Fundamental de 9 anos - 9º Ano
+docente,etapa_ensino,43,(1),EJA - Presencial - 1ª a 4ª Série / EJA - Presencial - Anos Iniciais
+docente,etapa_ensino,44,(1),EJA - Presencial - 5ª a 8ª Série / EJA - Presencial - Anos Finais
+docente,etapa_ensino,45,(1),EJA - Presencial - Ensino Médio
+docente,etapa_ensino,46,(1),EJA - Semipresencial - 1ª a 4ª Série / EJA - Semipresencial - Anos Iniciais
+docente,etapa_ensino,47,(1),EJA - Semipresencial - 5ª a 8ª Série (até 2010) / EJA - Semipresencial - Anos Finais (2011 em diante)
+docente,etapa_ensino,48,(1),EJA - Semipresencial - Ensino Médio
+docente,etapa_ensino,51,(1),EJA Presencial - 1ª a 8ª Série (até 2010) / EJA Presencial - Anos Iniciais e Anos Finais(2011 em diante)
+docente,etapa_ensino,56,(1),Educação Infantil e Ensino Fundamental Multietapa
+docente,etapa_ensino,58,(1),EJA Semipresencial - 1ª a 8ª Série (até 2010) / EJA Semipresencial - Anos Iniciais e Anos Finais (2011 em diante)
+docente,etapa_ensino,60,(1),EJA - Presencial - Integrada à Ed. Profissional de Nível Fundamental - FIC
+docente,etapa_ensino,61,(1),EJA - Semipresencial - Integrada à Ed. Profissional de Nível Fundamental - FIC
+docente,etapa_ensino,62,(1),EJA - Presencial - Integrada à Ed. Profissional de Nível Médio
+docente,etapa_ensino,63,(1),EJA - Semipresencial - Integrada à Ed. Profissional de Nível Médio
+docente,etapa_ensino,64,2010(1),Educação Profissional Mista (Concomitante e Subsequente) (até 2014) / Curso Técnico Misto (Concomitante e Subsequente) (2015 em diante)
+docente,etapa_ensino,65,2012(1),EJA - Presencial - Ens. Fundamental Projovem (Urbano) (até 2014 )/ EJA - Ensino Fundamental - Projovem Urbano (2015 em diante)
+docente,etapa_ensino,67,2015(1),Curso FIC integrado na modalidade EJA - Nível Médio
+docente,etapa_ensino,68,2015(1),Curso FIC Concomitante
+docente,etapa_ensino,69,2015(1),EJA - Ensino Fundamental - Anos Iniciais
+docente,etapa_ensino,70,2015(1),EJA - Ensino Fundamental - Anos Finais
+docente,etapa_ensino,71,2015(1),EJA - Ensino Médio
+docente,etapa_ensino,72,2015(1),EJA - Ensino Fundamental - Anos Iniciais e Anos Finais
+docente,etapa_ensino,73,2015(1),Curso FIC integrado na modalidade EJA - Nível Fundamental (EJA integrada à Educação Profissional de Nível Fundamental)
+docente,etapa_ensino,74,2015(1),Curso Técnico Integrado na Modalidade EJA (EJA integrada à Educação Profissional de Nível Médio)
+docente,tipo_contratacao,1,2011(1),Concursado/efetivo/estável
+docente,tipo_contratacao,2,2011(1),Contrato temporário
+docente,tipo_contratacao,3,2011(1),Contrato terceirizado
+docente,tipo_contratacao,4,2011(1),Contrato CLT
+docente,tipo_docente,1,(1),Docente
+docente,tipo_docente,2,(1),Auxiliar de Educação Infantil / Assistente Educacional
+docente,tipo_docente,3,(1),Profissional/Monitor de Atividade Complementar
+docente,tipo_docente,4,2011(1),Tradutor Intérprete de Libras
+docente,tipo_docente,5,2015(1),Docente Titular - coordenador de tutoria (de módulo ou disciplina) - EaD
+docente,tipo_docente,6,2015(1),Docente Tutor - Auxiliar (de módulo ou disciplina) – EAD
+docente,tipo_docente,7,2019(1),Guia intérprete
+docente,tipo_docente,8,2019(1),Profissional de apoio escolar para alunos com deficiência (Lei 13.146/2015)
+escola,tipo_localizacao,1,(1),Urbana
+escola,tipo_localizacao,2,(1),Rural
+escola,tipo_localizacao_diferenciada,1,(1),A escola não está em área de localização diferenciada
+escola,tipo_localizacao_diferenciada,2,(1),Área de assentamento
+escola,tipo_localizacao_diferenciada,3,(1),Terra indígena
+escola,tipo_localizacao_diferenciada,4,(1),Área onde se localiza comunidade remanescente de quilombos

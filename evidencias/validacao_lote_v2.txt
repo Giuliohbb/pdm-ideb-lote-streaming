@@ -1,0 +1,62 @@
+GET /saude -> 200 {"status":"ok","modelo":{"nome":"modelo_ideb","versao":"v2","backend":"savedmodel"},"carregado_em":"2026-10-30T01:48:03+00:00"}
+buscando 300 escolas da fonte 'lote' no BigQuery...
+
+Concordância API x BigQuery ML (lote): 300 escolas
+  dentro da tolerância de 0.001: 300 de 300
+  diferença máxima: 5.57e-07 · média: 2.46e-07
+  escolas com avisos (nulos ou categoria nova): 6
+  MAE da API contra o IDEB observado: 0.542
+    31092096: API 4.458386 · BigQuery 4.458385 · dif 5.57e-07
+    33030464: API 4.788221 · BigQuery 4.788222 · dif 5.09e-07
+    35005691: API 4.830796 · BigQuery 4.830795 · dif 5.02e-07
+
+Latência de ponta a ponta (30 requisições de 1 escola): mediana 55 ms · p95 172 ms
+Tempo dentro da API: mediana 6.4 ms
+
+GET /escolas/26116308/predicao -> 200
+{
+  "id_escola": "26116308",
+  "modelo": {
+    "nome": "modelo_ideb",
+    "versao": "v2",
+    "backend": "savedmodel"
+  },
+  "resultados": [
+    {
+      "origem_dado": "lote",
+      "ano": 2013,
+      "sigla_uf": "PE",
+      "rede": "2",
+      "ideb_real": 2.9,
+      "ideb_previsto_api": 3.698177,
+      "ideb_previsto_bigquery": null,
+      "diferenca_api_bigquery": null,
+      "avisos": []
+    },
+    {
+      "origem_dado": "lote",
+      "ano": 2015,
+      "sigla_uf": "PE",
+      "rede": "2",
+      "ideb_real": 3.6,
+      "ideb_previsto_api": 3.795615,
+      "ideb_previsto_bigquery": null,
+      "diferenca_api_bigquery": null,
+      "avisos": []
+    },
+    {
+      "origem_dado": "lote",
+      "ano": 2019,
+      "sigla_uf": "PE",
+      "rede": "2",
+      "ideb_real": 4.6,
+      "ideb_previsto_api": 4.009739,
+      "ideb_previsto_bigquery": null,
+      "diferenca_api_bigquery": null,
+      "avisos": []
+    }
+  ],
+  "latencia_ms": 1216.82
+}
+
+RESULTADO: OK, a API serve o mesmo modelo do BigQuery ML
