@@ -13,6 +13,7 @@ O passo a passo para implantar, validar e apresentar está no **[MANUAL.md](MANU
 
 | Requisito do enunciado | Onde está |
 |---|---|
+| Pipeline em lote (base histórica e treino do modelo) | `lote/` (bronze, silver, gold e BigQuery ML do Trabalho 1) |
 | Dados fluindo continuamente em JSON para o Pub/Sub | `produtor/produtor.py` e `dados/` (seção 3) |
 | Pipeline em tempo real: consumir, limpar e gravar no BigQuery | `pipeline/` (serviço de limpeza e job da gold) |
 | Relação evidente entre lote e streaming no BigQuery | `sql/01` e `sql/02`, view `vw_gold_ideb_unificada` (seção 7) |
@@ -23,6 +24,7 @@ O passo a passo para implantar, validar e apresentar está no **[MANUAL.md](MANU
 
 ```
 pdm-ideb-lote-streaming/
+├── lote/                            pipeline em lote do Trabalho 1: bronze, silver, gold e modelo (SQL)
 ├── MANUAL.md                        passo a passo da equipe: implantar, validar, ensaiar e apresentar
 ├── dados/                           NÃO versionado: gerado pelo gerador (seção 3), as 5 bronzes do fluxo (2.000 escolas)
 │   ├── bronze/                      as 5 bronzes sujas (.jsonl) + mensagens corrompidas
@@ -178,6 +180,8 @@ Resumo (o roteiro detalhado, com tempos e falas, está no MANUAL.md):
 4. **Fechamento:** `api/cliente_validacao.py` (concordância e latência) e `sql/04_avaliacao_modelo.sql`.
 
 ## 7. A relação entre lote e streaming no BigQuery
+
+O pipeline em lote está em [`lote/`](lote/README.md): guarda a história (2013, 2015 e 2019) e treina o modelo. O streaming mantém a base viva com dado novo limpo em segundos.
 
 Cada camada de streaming espelha uma camada do lote com os mesmos nomes de colunas, mais metadados de linhagem (`_message_id`, `_publish_time`, `_ingestao_ts` e `_regras_aplicadas`).
 
