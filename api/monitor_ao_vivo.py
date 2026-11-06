@@ -101,6 +101,8 @@ def main() -> int:
     ap.add_argument("--url", default=os.environ.get("URL_API"), help="URL da API (padrão: $URL_API)")
     ap.add_argument("--projeto", default="platinum-avenue-505512-t5")
     ap.add_argument("--dataset", default="trabalho_pdm")
+    ap.add_argument("--projeto-jobs", default=None,
+                    help="projeto onde as consultas rodam e são cobradas (padrão: o mesmo de --projeto)")
     ap.add_argument("--intervalo", type=float, default=3.0, help="segundos entre consultas")
     ap.add_argument("--desde-minutos", type=float, default=0.0,
                     help="mostra também as escolas consolidadas nos últimos N minutos (padrão: só as novas)")
@@ -113,7 +115,7 @@ def main() -> int:
 
     url = a.url.rstrip("/")
     sessao = requests.Session()
-    cliente = bigquery.Client(project=a.projeto)
+    cliente = bigquery.Client(project=a.projeto_jobs or a.projeto)
     versao = sessao.get(f"{url}/saude", timeout=120).json().get("modelo", {}).get("versao", "?")
 
     desde = dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=a.desde_minutos)
