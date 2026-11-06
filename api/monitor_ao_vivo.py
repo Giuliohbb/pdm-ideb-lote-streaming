@@ -34,8 +34,13 @@ from cliente_validacao import EXTRAS_STREAM, instancia  # noqa: E402
 VERDE, AMARELO, CINZA, NEGRITO, FIM = "\033[32m", "\033[33m", "\033[90m", "\033[1m", "\033[0m"
 
 
-def consultar(cliente, projeto: str, dataset: str, desde: dt.datetime, ja_vistas: set) -> tuple[int, int, list[dict]]:
-    """Devolve (mensagens no último minuto, escolas na gold de streaming, escolas novas)."""
+def consultar(cliente, projeto: str, dataset: str, cursor: tuple, ja_vistas: set) -> tuple[int, int, list[dict]]:
+    """Devolve (mensagens no último minuto, escolas na gold de streaming, escolas novas).
+
+    O cursor é (atualizado_em, id_escola) da última escola mostrada: o MERGE grava o mesmo horário
+    para o lote inteiro, então o horário sozinho não basta para paginar.
+    """
+    desde, ultimo_id = cursor
     from google.cloud import bigquery
 
     t = lambda nome: f"`{projeto}.{dataset}.{nome}`"  # noqa: E731
@@ -47,15 +52,17 @@ def consultar(cliente, projeto: str, dataset: str, desde: dt.datetime, ja_vistas
           (SELECT COUNT(*) FROM {t('gold_ideb_features_stream')}) AS escolas_gold""").result()
     linha = next(iter(contagem))
 
-    cfg = bigquery.QueryJobConfig(query_parameters=[bigquery.ScalarQueryParameter("desde", "TIMESTAMP", desde)])
+    cfg = bigquery.QueryJobConfig(query_parameters=[
+        bigquery.ScalarQueryParameter("desde", "TIMESTAMP", desde),
+        bigquery.ScalarQueryParameter("ultimo_id", "STRING", ultimo_id)])
     novas = cliente.query(f"""
         SELECT g.* EXCEPT ({EXTRAS_STREAM}), g.versao, g.atualizado_em, p.ideb_previsto AS previsto_bq
         FROM {t('gold_ideb_features_stream')} AS g
         JOIN {t('predicoes_ideb_stream')} AS p
           ON p.id_escola = g.id_escola AND p.ano = g.ano AND p.versao_gold = g.versao
         WHERE DATE(g.primeira_carga_em) >= DATE_SUB(DATE(@desde), INTERVAL 1 DAY)
-          AND g.atualizado_em >= @desde
-        ORDER BY g.atualizado_em
+          AND (g.atualizado_em > @desde OR (g.atualizado_em = @desde AND g.id_escola > @ultimo_id))
+        ORDER BY g.atualizado_em, g.id_escola
         LIMIT 500""", job_config=cfg).result()
     escolas = [dict(r.items()) for r in novas]
     escolas = [e for e in escolas if (e["id_escola"], e["versao"]) not in ja_vistas]
@@ -118,15 +125,16 @@ def main() -> int:
     cliente = bigquery.Client(project=a.projeto_jobs or a.projeto)
     versao = sessao.get(f"{url}/saude", timeout=120).json().get("modelo", {}).get("versao", "?")
 
-    desde = dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=a.desde_minutos)
+    cursor = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=a.desde_minutos), "")
     vistas: set = set()
     linhas: list[dict] = []
     latencias: list[float] = []
     iguais = 0
     try:
         while True:
-            msgs_min, escolas_gold, novas = consultar(cliente, a.projeto, a.dataset, desde, vistas)
+            msgs_min, escolas_gold, novas = consultar(cliente, a.projeto, a.dataset, cursor, vistas)
             if novas:
+                cursor = (novas[-1]["atualizado_em"], novas[-1]["id_escola"])
                 previstos, ms, versao = prever(sessao, url, novas)
                 latencias.append(ms)
                 hora = dt.datetime.now().strftime("%H:%M:%S")
