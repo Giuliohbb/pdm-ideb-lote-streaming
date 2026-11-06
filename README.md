@@ -43,7 +43,8 @@ pdm-ideb-lote-streaming/
 ├── api/                             a API REST de predição (FastAPI + TensorFlow), com Dockerfile
 │   ├── app/                         main.py (rotas), preditor.py (modelo), esquema_api.py (contrato)
 │   ├── exemplos/                    requisições prontas para curl
-│   └── cliente_validacao.py         compara a API com o ML.PREDICT do BigQuery e mede a latência
+│   ├── cliente_validacao.py         compara a API com o ML.PREDICT do BigQuery e mede a latência
+│   └── monitor_ao_vivo.py           painel de terminal para a demo: escolas chegando pelo streaming e previstas pela API, sem cliques
 ├── sql/                             01 tabelas · 02 views · 03 consultas da demo · 04 avaliação · 05/06 MERGEs
 ├── infra/
 │   ├── implantar.sh                 pipeline de streaming (Pub/Sub, Cloud Run, job da gold)
@@ -253,6 +254,8 @@ curl -X POST "$URL_API/predicao" -H "Content-Type: application/json" -d @api/exe
 | Custo parado | zero (o Cloud Run escala a zero) | cobra por hora de nó implantado, mesmo sem requisições (US$ 0,1095 por hora no n1-standard-2 em us-central1) |
 | Latência | milissegundos dentro da API | soma uma chamada de rede ao endpoint |
 | Para que serve | operação normal | mostrar a segunda forma pedida no enunciado |
+
+**Painel ao vivo.** `python api/monitor_ao_vivo.py --url $URL_API` atualiza a tela a cada 3 segundos com as mensagens do último minuto, as escolas que o job acabou de consolidar na gold e a previsão da API para cada uma, ao lado da previsão do BigQuery.
 
 **Validação em produção.** `api/cliente_validacao.py` pega escolas da gold, envia à API e compara com o `ML.PREDICT` do BigQuery (as duas precisam coincidir até a terceira casa decimal), mede a latência e testa a rota de leitura da gold.
 

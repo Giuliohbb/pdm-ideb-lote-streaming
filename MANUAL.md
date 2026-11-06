@@ -307,7 +307,7 @@ bash infra/endpoint_vertex.sh remover
 | Papel | Responsabilidade |
 |---|---|
 | Narrador | conduz os slides e a fala |
-| Operador do Cloud Shell | produtor, `curl`, `cliente_validacao.py` |
+| Operador do Cloud Shell | produtor, `curl`, `cliente_validacao.py`, `monitor_ao_vivo.py` numa segunda aba |
 | Operador do BigQuery | consultas de `sql/03` e `sql/04`, já abertas em abas |
 | Operador dos consoles e plano B | Model Registry, Cloud Run, Cloud Logging; acompanha erros e aciona o plano B |
 
